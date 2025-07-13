@@ -1,0 +1,37 @@
+{% from 'source/Views/components/input.njk' import input %}
+{% from 'source/Views/components/card.njk' import Card %}
+ {% from 'source/Views/components/button.njk' import button , buttonBorder %}
+  {% from 'source/Views/components/textTitle.njk' import textTitle , textTitleBorder %}
+
+ {% macro widthdraw( ) %}
+   <div class="flex flex-1 flex-col" data-page="withdraw" data-open="false">
+        <div class="flex flex-1 flex-col space-y-2 py-3">
+        
+            {{ textTitle (text="Select Currency", icon='currency', className="bg-transparent") }}
+
+            <div class="flex flex-1 space-x-2">
+                {{ button( type="" , border='', selected='true', text="USDT", className='text-lg flex-none px-2' )}}
+            </div>
+        </div>
+        <div class="flex flex-1 flex-col space-y-2 py-3">
+            {{ textTitle (text="TRC-20 Address", icon='address') }}
+            <div class="flex flex-1">
+                {% call input(  className="flex-1" ) %} {% endcall %}
+            </div>
+        </div>
+        <div class="flex flex-1 flex-col space-y-3 py-3">
+            {{ textTitle (text="Withdraw Amount (Min: 1)" , icon='withdraw' ) }}
+             <div class="flex flex-1">
+                {% call input(  className="flex-1 flex-1 max-h-[40px] min-w-0 " ) %}
+                    <div class="flex flex-1 items-center space-x-2">
+                        {{button( type="", text="25%", py='0' , className="text-base flex-none bg-White-opacity5 px-1  rounded-lg my-0.5")}}
+                        {{button( type="", text="50%", py='0' , className="text-base flex-none bg-White-opacity5 px-1 rounded-lg my-0.5")}}
+           
+                        {{button( type="", text="100%" , py='0' , className="text-base flex-none bg-White-opacity5 px-1  rounded-lg my-0.5")}}
+                    </div>
+                {% endcall %}
+            </div>
+        </div>
+        {{ button ( type="red", text='Withdraw', className="flex-1 text-base mt-2") }}
+    </div>
+{% endmacro %}

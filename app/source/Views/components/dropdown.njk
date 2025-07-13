@@ -1,0 +1,51 @@
+
+
+ {% macro dropdown( img, minW , open) %}
+   <div class="flex flex-none ml-2 relative max-w-{{minW}}" data-component="dropdown"  data-open="false">
+    {% set flags = ['EN','JP'] %}
+
+    <button class=" flex flex-none items-center w-fit  before:w-[1px] before:flex before:bg-White-opacity2 before:h-[calc(100%-0.5rem)] " onclick="toggleDropdown(this)">
+      <img class="w-full max-w-[36px] pl-1.5 pr-1" src="{{img}}/flag/Lang_{{flags[0]}}.svg" alt="">
+      <i class="icon-arrow  before:!bg-white before:!w-[16px] before:!rotate-90"></i>
+    </button>
+    <div class="absolute max-w-[40px]  p-1.5 top-[35px] bg-dark-red2 border border-theme-red dropdown-content" >
+      <ul>
+        {% for item in flags %}
+          <li>
+            <img class="w-full" src="{{img}}/flag/Lang_{{item}}.svg" alt="">
+          </li>
+        {% endfor %}
+       
+      </ul>
+    </div>
+   </div>
+{% endmacro %}
+
+
+ {% macro dropdown2( img, maxW , open) %}
+   <div class="flex flex-1 relative max-w-full" data-component="dropdown"  data-open="false">
+    
+    <button class=" flex flex-1 text-left px-2 items-center relative z-[2] w-fit border text-white min-h-[48px] bg-White-opacity5 border-White-opacity5 rounded-lg   " onclick="toggleDropdown(this)">
+      <span class="flex-1 px-1">USD</span>
+      <i class="icon-arrow  before:!bg-white before:!w-[16px] before:!rotate-90"></i>
+    </button>
+    <div class="flex absolute max-w-full  text-white p-1.5 top-[46px] right-0 left-0 bg-zinc-900 rounded-b-lg border-White-opacity5 border border-top-0 dropdown-content" >
+      <ul class="flex-1 p-2 space-y-1.5">
+        
+          <li class="flex-1 ">
+            <span class="flex-1">USD</span>
+            
+          </li>
+          <li class="flex-1">
+            <span class="flex-1">USD</span>
+            
+          </li>
+          <li class="flex-1">
+            <span class="flex-1">USD</span>
+            
+          </li>
+       
+      </ul>
+    </div>
+   </div>
+{% endmacro %}

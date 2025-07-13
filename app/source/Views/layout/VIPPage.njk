@@ -1,0 +1,36 @@
+{% from 'source/Views/components/table.njk' import table %}
+ {% macro VIPPage() %}
+   <aside class="flex flex-1 flex-col px-4 py-[60px] min-h-12 bg-black fixed top-0 bottom-0 left-0 right-0 z-[9] overflow-y-auto flex flex-1 flex-col px-4 py-[60px] min-h-12 bg-black fixed top-0 bottom-0 left-0 right-0 z-[9] overflow-y-auto VIPPage" data-page="VIPPage" data-open="false">
+    <div class="flex flex-[1 0 auto] w-full h-fit  items-center space-x-4">
+       
+        <button class="flex ml-auto items-center justify-center flex-none w-[48px] h-[48px] rounded-full  border border-dark-red3 border-8 provider-close" onclick="prodiverclose()">
+            <i class=" icon-arrow before:bg-theme-red before:rotate-180"></i>
+        </button>
+      
+        <div class="flex flex-1 flex-col  "> 
+            <span class="text-white font-initial text-xl">VIP Benifit</span>
+        </div>
+         
+    </div>
+ {% set vipData = {
+        header: ['LV.', 'Total Bet', 'Cash Back', 'Rebate'],
+        rows: [
+            {time:'1', type: '0 - 1000', amount: '1%', balance: '3%'},
+            {time:'2', type: '1001-3000', amount: '1%', balance: '3%'},
+                {time:'3', type: '3001-7000', amount: '1%', balance: '3%'},
+            {time:'4', type: '7001-15,000', amount: '1%', balance: '3%'},
+                {time:'5', type: '15,001-50,000', amount: '1%', balance: '3%'},
+                {time:'6', type: '50,001-100,000', amount: '1%', balance: '3%'},
+            {time:'7', type: '100,001-500,000', amount: '1%', balance: '3%'},
+                {time: '8', type: '500,001-1000,000', amount: '1%', balance: '3%'},
+            {time: '9', type: '1,000,001-3,000,000', amount: '1%', balance: '3%'},
+                {time: '10', type: '3,000,001', amount: '1%', balance: '3%'}
+            
+            ]
+        } 
+    %}
+    {{ table( data=vipData , className='mb-[60px]') }}
+
+  
+   </aside>
+{% endmacro %}

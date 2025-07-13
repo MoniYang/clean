@@ -1,0 +1,18 @@
+
+
+ {% macro button(text, fontSize, flex , type="" , border='', className="" , selected='', py='2', Click) %}
+   <button class="py-{{py}} text-center 
+   {% if type == 'red' %}text-white bg-theme-red  rounded-full {% endif %} 
+   {% if border =='black' %}border text-white  bg-White-opacity5 border-White-opacity4 rounded-full {% endif %} 
+   {% if border =='red' %}border border-dark-red bg-dark-red2{% endif %}  {{className}} " 
+   {% if selected !="" %}data-selected={{selected}}{% endif %} {% if Click !="" %} ≈{% endif %}
+   >{{text}}</button>
+{% endmacro %}
+
+ {% macro buttonBorder(text , className) %}
+   <button class="flex flex-1 items-center py-2 text-base font-semibold justify-center border border-dark-red bg-dark-red2 text-white rounded-full text-sm {{className}}">
+        <span class="px-1.5">{{text }}</span>
+   </button>
+{% endmacro %}
+
+   {# {% if selected !="" %}bg-white text-theme-red rounded-full {% endif %} #}

@@ -1,0 +1,115 @@
+
+ {% from 'source/Views/components/button.njk' import button , buttonBorder %}
+
+ {% macro betList(page, open) %}
+    {% set tableContent = {
+            header: ['Time', 'Type', 'Amount', 'Balance'],
+            rows: [
+                {time: '20240103 22:25:47', type: 'Transfer Out', amount: '560', balance: '0'},
+                {time: '20240103 21:58:17', type: 'Deposit', amount: '500', balance: '560'},
+                    {time: '20240103 22:25:47', type: 'Transfer Out', amount: '560', balance: '0'},
+                {time: '20240103 21:58:17', type: 'Deposit', amount: '500', balance: '560'},
+                    {time: '20240103 22:25:47', type: 'Transfer Out', amount: '560', balance: '0'},
+                {time: '20240103 21:58:17', type: 'Deposit', amount: '500', balance: '560'},
+                    {time: '20240103 22:25:47', type: 'Transfer Out', amount: '560', balance: '0'},
+                {time: '20240103 21:58:17', type: 'Deposit', amount: '500', balance: '560'},
+                    {time: '20240103 22:25:47', type: 'Transfer Out', amount: '560', balance: '0'},
+                {time: '20240103 21:58:17', type: 'Deposit', amount: '500', balance: '560'},
+                    {time: '20240103 22:25:47', type: 'Transfer Out', amount: '560', balance: '0'},
+                {time: '20240103 21:58:17', type: 'Deposit', amount: '500', balance: '560'},
+                    {time: '20240103 22:25:47', type: 'Transfer Out', amount: '560', balance: '0'}
+                
+                ]
+            } 
+        %}
+        <section class="flex flex-1 flex-col font-normal py-4 text-sm text-white" data-page="{{page}}"  data-open="{{open}}">
+                <div class="flex flex-none bg-theme-red  py-2">
+                    {% for header in tableContent.header %}
+                        <div class="flex-[0 0 auto] text-center w-3/12 ">
+                            <span class="flex-1">{{ header }}</span>
+                        </div>
+                    {% endfor %}
+                </div>
+                <div class="flex flex-1 flex-col">
+                    {% for row in tableContent.rows %}
+                        <div class="flex flex-1 odd:bg-transparent even:bg-dark-red3">
+                            <div class="flex flex-[0 0 auto] items-center text-center py-1 w-3/12">
+                                <span class="flex-1">{{ row.time }}</span>
+                            </div>
+                            <div class=" flex flex-[0 0 auto] items-center text-center py-1 w-3/12">
+                                <span class="flex-1">{{ row.type }}</span>
+                            </div>
+                            <div class=" flex flex-[0 0 auto] items-center text-center py-1 w-3/12">
+                                <span class="flex-1">{{ row.amount }}</span>
+                            </div>
+                            <div class="flex flex-[0 0 auto] items-center text-center py-1 w-3/12">
+                                <span class="flex-1">{{ row.balance }}</span>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+                <div class="flex flex-1 space-x-3 mt-4">
+                    {{ button( type="red",  text='Next', className="flex-1 text-base", Click="", selected="false" ) }}
+                    {{ button( type="red",  text='Prev', className="flex-1 text-base", Click="", selected="false" ) }}
+                </div>
+            
+        </section>
+  
+    {% endmacro %}
+
+
+ {% macro bethistory(page, open) %}
+ {% set tableContent = {
+        header: ['Time', 'Game', 'Bet', 'W/L'],
+        rows: [
+            {time: '20240103 22:25:47', type: 'Transfer Out', amount: '10', balance: '19.5'},
+            {time: '20240103 21:58:17', type: 'Deposit', amount: '10', balance: '0'},
+                {time: '20240103 22:25:47', type: 'Transfer Out', amount: '60', balance: '60'},
+            {time: '20240103 21:58:17', type: 'Deposit', amount: '500', balance: '560'},
+                {time: '20240103 22:25:47', type: 'Transfer Out', amount: '160', balance: '400'},
+            {time: '20240103 21:58:17', type: 'Deposit', amount: '500', balance: '560'},
+                {time: '20240103 22:25:47', type: 'Transfer Out', amount: '300', balance: '0'},
+            {time: '20240103 21:58:17', type: 'Deposit', amount: '500', balance: '560'},
+                {time: '20240103 22:25:47', type: 'Transfer Out', amount: '300', balance: '72'},
+            {time: '20240103 21:58:17', type: 'Deposit', amount: '500', balance: '560'},
+                {time: '20240103 22:25:47', type: 'Transfer Out', amount: '2', balance: '10'},
+            {time: '20240103 21:58:17', type: 'Deposit', amount: '500', balance: '560'},
+                {time: '20240103 22:25:47', type: 'Transfer Out', amount: '2', balance: '0'}
+            
+            ]
+        } 
+    %}
+   <section class="flex flex-1 flex-col font-normal py-4 text-sm text-white" data-page="{{page}}"  data-open="{{open}}">
+        <div class="flex flex-none bg-theme-red  py-2">
+            {% for header in tableContent.header %}
+                <div class="flex-[0 0 auto] text-center w-3/12">
+                    <span class="flex-1">{{ header }}</span>
+                </div>
+            {% endfor %}
+        </div>
+        <div class="flex flex-1 flex-col">
+            {% for row in tableContent.rows %}
+                <div class="flex flex-1 odd:bg-transparent even:bg-dark-red3">
+                    <div class="flex flex-[0 0 auto] items-center text-center py-1 w-3/12">
+                        <span class="flex-1">{{ row.time }}</span>
+                    </div>
+                    <div class=" flex flex-[0 0 auto] items-center text-center py-1 w-3/12">
+                        <span class="flex-1">{{ row.type }}</span>
+                    </div>
+                    <div class=" flex flex-[0 0 auto] items-center text-center py-1 w-3/12">
+                        <span class="flex-1">{{ row.amount }}</span>
+                    </div>
+                    <div class="flex flex-[0 0 auto] items-center text-center py-1 w-3/12">
+                        <span class="flex-1">{{ row.balance }}</span>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+         <div class="flex flex-1 space-x-3 mt-4">
+            {{ button( type="red",  text='Next', className="flex-1 text-base", Click="", selected="false" ) }}
+            {{ button( type="red",  text='Prev', className="flex-1 text-base", Click="", selected="false" ) }}
+        </div>
+    
+   </section>
+  
+{% endmacro %}

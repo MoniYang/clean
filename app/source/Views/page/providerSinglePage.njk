@@ -1,0 +1,7 @@
+{% extends "source/Views/include/htmllayout.njk" %}
+
+  {% from 'source/Views/layout/providerPage.njk' import providerSinglePage %}
+{% block body %}
+   {{providerSinglePage(img=img)}}
+
+{% endblock %}

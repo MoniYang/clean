@@ -1,0 +1,37 @@
+{% from 'source/Views/components/input.njk' import input %}
+{% from 'source/Views/components/card.njk' import Card %}
+ {% from 'source/Views/components/button.njk' import button , buttonBorder %}
+  {% from 'source/Views/components/textTitle.njk' import textTitle , textTitleBorder %}
+    {% from 'source/Views/wallet/deposit.njk' import deposit %}
+    {% from 'source/Views/wallet/widthdraw.njk' import widthdraw %}
+     {% from 'source/Views/wallet/betList.njk' import betList,bethistory %}
+ {% macro walletPage(img) %}
+   <aside class="flex flex-1 flex-col px-4 pt-[60px] pb-[100px] min-h-12 bg-black fixed top-0 bottom-0 left-0 right-0 z-[9] overflow-y-auto wallet" data-open="false">
+    
+        {% call Card( type="red" , text2xl='$ 1,000,000.00' , icon2xl='wallet', className=" flex-[1 0 auto] py-8") %}
+        
+        {% endcall %}
+  
+
+        <div class="flex flex-[1 0 auto] flex-col py-4 space-y-4 font-400 text-white ">
+        
+            <div class="flex flex-1 space-x-3">
+                {{ button( type="red",  text='Deposit', className="flex-1 text-base", Click="depositEvent(this)", selected="false" ) }}
+                {{ button( type="red",  text='Withdraw', className="flex-1 text-base", Click="withdrawEvent(this)", selected="false" ) }}
+            
+            </div>
+            <div class="flex flex-1 space-x-3 ">
+                {{ button( type="red", text='Statement', className="flex-1 text-base" , Click="statementEvent(this)",selected="false") }}
+                {{ button( type="red",  text='Bet History', className="flex-1 text-base" ,Click="betHistoryEvent(this)", selected="false" ) }}
+            
+            </div>
+        </div>
+        <div class="flex flex-1 flex-col   border-t  border-slate-700">
+          
+            {{ deposit ()  }}
+            {{ widthdraw ()  }}
+            {{ betList (page='statement', open="false")  }}
+            {{ bethistory (page='betHistory' , open="false")  }}
+        </div>
+   </aside>
+{% endmacro %}

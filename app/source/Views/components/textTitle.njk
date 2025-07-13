@@ -1,0 +1,15 @@
+
+
+
+ {% macro textTitle( text , icon='', iconClass ) %}
+   <div class="flex flex-[1 0 auto] items-center text-white text-xl space-x-2">
+    {% if icon !='' %}<icon class="icon-{{icon}} {{ iconClass }}"></icon>{% endif %}
+     <span>{{ text }}</span>
+   </div>
+{% endmacro %}
+
+{% macro textTitleBorder ( className )%}
+     <div class="flex flex-1 border-t  border-slate-700 {{ className }}">
+          {{ caller ()}}
+     </div>
+{% endmacro %}

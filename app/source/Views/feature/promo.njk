@@ -1,0 +1,23 @@
+
+
+ {% macro promo( img, promo,minH ) %}
+   <section class="flex flex-initial min-w-0 min-h-{{minH}} p-4">
+        <div class="swiper mySwiper">
+    <div class="swiper-wrapper">
+        {% if promo == '1' %}
+            {% set items = ['Banner_01', 'Banner_02', 'Banner_03'] %}
+        {% elif promo == '2' %}
+            {% set items = ['Pic_Promo','Pic_Promo','Pic_Promo'] %}
+        {% endif %}
+        {% for item in items %}
+            <div class="swiper-slide">
+                <div class="rounded-tr-2xl">
+                <img class="rounded-[inherit]" src="{{ img }}/banner/{{item}}.jpg" alt="">
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+    <div class="swiper-pagination bottom-0"></div>
+  </div>
+   </section>
+{% endmacro %}

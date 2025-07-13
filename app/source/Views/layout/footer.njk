@@ -1,0 +1,33 @@
+
+
+ {% macro footer_content(img) %}
+   <section class="flex flex-1 flex-col px-4 py-2  ">
+       <div class="flex flex-1 flex-col justify-center items-ceter max-w-[190px] mx-auto space-y-4 mb-4">
+        <img src="{{img}}/logo_footer.svg" alt="">
+        <p class="text-xl font-light text-center text-white">Terms and conditions Responsible Gaming AML Policy <br> Restricted jurisdictions<br>Fairness<br>FAQ<br/>Support</p>
+        <i class="icon-18 before:bg-white mx-auto before:w-[36px] before:h-[36px]"></i>
+      </div>
+      <p class="text-xs text-white">© 2024 ChatPlay. All rights reserved. ChatPlay.bet is operated by a company registered and established under the laws of Curaçao. Nexus Group Enterprises N.V. is licensed and regulated by AntillePhone N.V. Nexus Group Enterprises N.V.’s registration number is 139781 and its registered address is Dr. M.J. Hugenholzweg 25, Curacao, Unit 17-B.</p>
+          
+   </section>
+{% endmacro %}
+
+{% macro footerMenu( selected) %}
+  {% set items = [
+  { icon:'menu', text:'Menu', onclick:'sideMenuOpen()' },
+  { icon:'home', text:'Home', selected:true, onclick:'homeEvent()' },
+
+  { icon:'promo', text:'Promo', promo:true , onclick:'promoEvent()' },
+  { icon:'wallet', text:'Wallet', onclick:'walletEvent()' },
+  { icon:'profile', text:'Profile', onclick:'profileEvent()'}
+  ] %}
+    <footer class="flex flex-none bg-dark-red2 h-[60px] px-4 py-2 sticky bottom-0 z-10" >
+      {% for item in items %}
+        <div class="flex flex-1 flex-col justify-center items-center text-White-opacity3 text-xs relative cursor-pointer appItem" {%if item.selected !=''%} data-selected="{{ item.selected }}" {% endif %} onclick="{{ item.onclick }}">
+          <i class="icon-{{item.icon}} mb-1 {% if item.promo == true %} before:w-[30px] before:h-[30px] bg-theme-red rounded-full p-2 border-[5px] border-black absolute top-[-30px] {% endif %} "></i>
+          <span class="{% if item.promo == true %}  mt-auto{% endif %}">{{ item.text}}</span>
+        </div>
+      {% endfor %}
+
+    </footer>
+{% endmacro %}

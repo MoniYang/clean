@@ -1,0 +1,16 @@
+
+{% from 'source/Views/components/button.njk' import button , buttonBorder %}
+ {% macro infoBoard( img, promo,minH ) %}
+   <section class="flex flex-initial p-4 ">
+    <div class="flex flex-1 flex-col min-h-[500px] w-full bg-contain bg-no-repeat bg-left-top bg-special-infoBoard" style="background-image:url('{{ img }}/Pic_InfoBoard.jpg');">
+      <div class="flex flex-1 flex-col justify-end px-3 space-y-4 pb-4">
+        <h3 class="text-2xl text-White-opacity1">The Best Online Casino<br>Gaming Experience</h3>
+        <p class="text-White-opacity2 text-xs">ChatPlay is a fully-fledged online casino which goes beyond what the others have to offer. GAMB leads the way in an online gaming since 2014, standing out as the go-to casino for gaming enthusiasts. </p>
+        <p class="text-White-opacity2 text-xs">Enjoy fast cashouts and 24/7 support that make playing a breeze. Our secure and easy-to-use site gives you a top-notch gaming experience, with a huge selection of games right at your fingertips.</p>
+        {{button ( type='red', flex="flex-[1 0 auto]", text="Contact us")}}
+      </div>
+     
+    </div>
+  
+   </section>
+{% endmacro %}

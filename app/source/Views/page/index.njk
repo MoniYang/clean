@@ -1,0 +1,20 @@
+{% extends "source/Views/include/htmllayout.njk" %}
+
+{% block content %}
+   {{ promo ( img=img,promo="1", minH="[300px]" )}}
+   {{ promoGame( img=img, promoGame_title="TOP 10" , icon="star" , icon_color="highlight-green",  sample_img="Top_GameIcon" ) }}
+   {{ promoGame( img=img, promoGame_title="New" , icon="new" , icon_color="highlight-blue" ,  sample_img="New_GameIcon" ) }}
+   {{ promoGame( img=img, promoGame_title="Recommended" , icon="good" , icon_color="theme-red" ,  sample_img="Recommand_GameIcon" ) }}
+   {{ provider( img=img, title="Game Provider" , icon="game" , icon_color="highlight-yellow" ,  sample_img="GameProvide" ) }}
+   {{ promo ( img=img, promo="2",minH="[260px]" )}}
+   {{ promoGame2( img=img, promoGame_title="SLOT", sample_img="GameIcon-Slot") }}
+   {{ promoGame2( img=img, promoGame_title="POKER", sample_img="GameIcon-Poker") }}
+   {{ promoGame2( img=img, promoGame_title="FISHING", sample_img="GameIcon-Fishing") }}
+   {{ promoGame2( img=img, promoGame_title="LOTTERY & BINGO", sample_img="GameIcon-Lottery") }}
+   {{ promoGame2( img=img, promoGame_title="SPORT", sample_img="GameIcon-Sport") }}
+   {{ infoBoard( img=img ) }}
+
+   {{ gameCategory(img=img) }}
+   {{ VIPPage() }}
+
+{% endblock %}

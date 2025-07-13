@@ -1,0 +1,9 @@
+
+
+
+ {% macro search( className='flex-1') %}
+   <div class="flex relative items-center {{className}}">
+        <input type="text" class="flex-1 px-2 h-[48px] border border-dark-red3 rounded-lg text-white bg-black" placeholder="Search game">
+        <button class="absolute right-0 w-[36px] h-[36px] opacity-75"><i class="icon-search"></i></button>
+    </div>
+{% endmacro %}

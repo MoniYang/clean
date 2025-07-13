@@ -1,0 +1,11 @@
+
+
+ {% macro Header(img) %}
+   <header class="flex flex-initial items-center px-4 py-2 min-h-12 bg-theme-red sticky top-0 z-20">
+     <div class="flex flex-1 max-w-[140px]">
+         <img src="{{img}}/logo_header.svg" alt="">
+      </div>
+      {{ caller ()}}
+     
+   </header>
+{% endmacro %}

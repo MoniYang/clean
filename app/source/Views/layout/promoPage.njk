@@ -1,0 +1,16 @@
+
+{% macro promoPage(img) %}
+   <div class="flex flex-1 flex-col px-4 pt-[60px] pb-[100px] bg-black fixed top-0 bottom-0 left-0 right-0 z-[9] overflow-y-auto promo" data-open="false">
+        {% set IMGData = ['01','02','03']%}
+        <ul class="space-y-3">
+        {% for item in IMGData  %}
+            <li>
+                <a href="#">
+                    <img class="rounded-2xl" src="{{img}}/promo/Sample_Promo_{{ item }}.jpg" alt="">
+                </a>
+            </li>
+            {% endfor %}
+        </ul>
+       
+   </div>
+{% endmacro %}

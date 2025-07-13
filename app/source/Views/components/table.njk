@@ -1,0 +1,57 @@
+     {% set vipData = {
+        header: ['LV.', 'Total Bet', 'Cash Back', 'Rebate'],
+        rows: [
+            {time:'1', type: '0 - 1000', amount: '1%', balance: '3%'},
+            {time:'2', type: '1001-3000', amount: '1%', balance: '3%'},
+                {time:'3', type: '3001-7000', amount: '1%', balance: '3%'},
+            {time:'4', type: '7001-15,000', amount: '1%', balance: '3%'},
+                {time:'5', type: '15,001-50,000', amount: '1%', balance: '3%'},
+                {time:'6', type: '50,001-100,000', amount: '1%', balance: '3%'},
+            {time:'7', type: '100,001-500,000', amount: '1%', balance: '3%'},
+                {time: '8', type: '500,001-1000,000', amount: '1%', balance: '3%'},
+            {time: '9', type: '1,000,001-3,000,000', amount: '1%', balance: '3%'},
+                {time: '10', type: '3,000,001', amount: '1%', balance: '3%'}
+            
+            ]
+        } 
+    %}
+  {% from 'source/Views/components/button.njk' import button , buttonBorder %}
+ {% macro table( data , className) %}
+        
+        <div class="flex flex-1 flex-col font-normal py-4 text-sm text-white {{className}}">
+            <div class="flex flex-none bg-theme-red  py-2">
+                <div class="flex-[0 0 auto] max-w-[10%] text-center w-3/12 ">
+                    <span class="flex-1">{{ vipData.header[0] }}</span>
+                </div>
+                <div class="flex-1 text-left ">
+                        <span class="flex-1">{{ vipData.header[1] }}</span>
+                    </div>
+                    <div class="flex-[0 0 auto] max-w-[20%] text-center w-3/12 ">
+                        <span class="flex-1">{{ vipData.header[2] }}</span>
+                    </div>
+                 <div class="flex-[0 0 auto] max-w-[20%] text-center w-3/12 ">
+                        <span class="flex-1">{{ vipData.header[3] }}</span>
+                    </div>
+            </div>
+            <div class="flex flex-1 flex-col">
+                {% for row in data.rows %}
+                    <div class="flex flex-1 odd:bg-transparent even:bg-dark-red3">
+                        <div class="flex flex-[0 0 auto] max-w-[10%] items-center text-center py-1 w-3/12">
+                            <span class="flex-1">{{ row.time }}</span>
+                        </div>
+                        <div class=" flex flex-1 items-center text-left py-1 w-3/12">
+                            <span class="flex-1">{{ row.type }}</span>
+                        </div>
+                        <div class=" flex flex-[0 0 auto] max-w-[20%] items-center text-center py-1 w-3/12">
+                            <span class="flex-1">{{ row.amount }}</span>
+                        </div>
+                        <div class="flex flex-[0 0 auto] max-w-[20%] items-center text-center py-1 w-3/12">
+                            <span class="flex-1">{{ row.balance }}</span>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+          
+        </div>
+  
+    {% endmacro %}

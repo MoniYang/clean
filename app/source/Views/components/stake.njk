@@ -1,0 +1,14 @@
+
+
+ {% macro stake() %}
+   <button class="flex flex-none items-center px-1 text-sm justify-center border border-white text-white rounded-full text-sm">
+        <span class="px-1.5">1,000,000 </span>
+        <i class="icon-add before:!w-5"></i>
+   </button>
+{% endmacro %}
+
+{% macro user( img=img) %}
+   <div class="flex flex-none  w-[28px] h-[28px] border border-white  rounded-full text-sm">
+        <img class="w-fit rounded-full" src="{{img}}/user.jpg" alt="">
+   </div>
+{% endmacro %}

@@ -1,0 +1,50 @@
+
+{% from 'source/Views/components/card.njk' import Card %}
+{% from 'source/Views/components/dropdown.njk' import dropdown2 %}
+ {% from 'source/Views/components/button.njk' import button , buttonBorder %}
+  {% from 'source/Views/components/textTitle.njk' import textTitle , textTitleBorder %}
+
+ {% macro deposit( ) %}
+   <div class="flex flex-1 flex-col" data-page="deposit" data-open="open">
+        <div class="flex flex-1 flex-col space-y-2 py-3">
+        
+            {{ textTitle (text="Select Currency", icon='currency' ) }}
+        
+            <div class="flex flex-1 space-x-2">
+                {{ button( type="" , border='black', text="TON", className='text-lg flex-1' )}}
+                {{ button( type="" , border='', selected='true', text="USDT", className='text-lg flex-1' )}}
+                {{ button( type="" , border='black', text="BTC", className='text-lg flex-1' )}}
+                {{ button( type="" , border='black', text="CUSD", className='text-lg  flex-1' )}}
+                {{ button( type="" , border='black', text="NOT", className='text-lg  flex-1' )}}
+            </div>
+        </div>
+        <div class="flex flex-1 flex-col space-y-2 py-3">
+            {{ textTitle (text="Promo Plan", icon='promoPlan' ) }}
+            {{ dropdown2(  maxW="100%") }}
+        </div>
+        <div class="flex flex-1 flex-col space-y-2 py-3">
+            {{ textTitle (text="Deposit Amount") }}
+            <div class="flex flex-1 space-x-2">
+                {{ button( type="" , border='black', text="5", className='text-lg flex-1' )}}
+                {{ button( type="" , border='', selected='true', text="25", className='text-xl flex-1' )}}
+                {{ button( type="" , border='black', text="50", className='text-lg flex-1' )}}
+                {{ button( type="" , border='black', text="100", className='text-lg  flex-1' )}}
+        
+            </div>
+            <div class="flex flex-1 space-x-2">
+                {{ button( type="" , border='black', text="150", className='text-xl flex-1' )}}
+                {{ button( type="" , border='', selected='true', text="200", className='text-xl flex-1' )}}
+                {{ button( type="" , border='black', text="250", className='text-xl flex-1' )}}
+                {{ button( type="" , border='black', text="500", className='text-xl flex-1' )}}
+        
+            </div>
+        </div>
+        <div class="flex flex-1 flex-col space-y-3 py-3">
+            {{ textTitle (text="Payment Method" , icon='wallet' , iconClass='before:bg-theme-red' ) }}
+            <div class="flex flex-1 space-x-2">
+                {{button( type="red", text="@wallet" ,className="text-base flex-1")}}
+                {{button( type="red", text="@Cryptobot" ,className="text-base flex-1")}}
+            </div>
+        </div>
+    </div>
+{% endmacro %}

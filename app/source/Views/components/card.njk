@@ -1,0 +1,14 @@
+
+
+
+ {% macro Card( minH , type , text='', textLg='', text2xl='', text3xl='', icon2xl='', className="") %}
+   <div class="flex  flex-col {% if minH != '' %} min-h-{{minH}} {% endif %} items-center justify-center  border  rounded-2xl {{className}}
+   {% if type == 'red'%} border-dark-red bg-dark-red2 {% endif %} {% if type == 'black'%} bg-White-opacity5 border-White-opacity4 {% endif %} ">
+        {% if icon2xl != '' %}<i class="icon-{{icon2xl}} before:!w-[72px] before:!h-[72px]"></i>{% endif %}
+        {% if text != '' %}<span class="text-xs text-White-opacity5">{{ text }}</span>{% endif %}
+        {% if textLg != '' %}<span class="text-lg text-white">{{ textLg }}</span>{% endif %}
+        {% if text2xl != '' %}<span class="text-2xl text-white">{{ text2xl }}</span>{% endif %}
+        {% if text3xl != '' %}<span class="text-3xl text-white">{{ text3xl }}</span>{% endif %}
+        {{ caller ()}}
+   </div>
+{% endmacro %}

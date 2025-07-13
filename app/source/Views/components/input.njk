@@ -1,0 +1,9 @@
+
+
+
+ {% macro input( className ) %}
+   <div class="{{className}} flex border text-white rounded-xl bg-White-opacity5 border-White-opacity4 px-2 ">
+        <input class="flex-1 rounded-xl py-2 bg-transparent outline-none " type="text" placeholder="">
+        {{ caller ()}}
+    </div>
+{% endmacro %}
