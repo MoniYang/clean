@@ -54,7 +54,7 @@ function njk(cb) {
         // 初始資料設定
         data: {
             lang: 'en', // 預設語系
-            img:'../../images',
+            img:'../../style/img',
             source_path: '../../', // css 預設相對路徑
           
             platform: 'desktop', // 預設平台

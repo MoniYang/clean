@@ -1,7 +1,7 @@
 {% extends "source/Views/include/htmllayout.njk" %}
 
 {% block content %}
-   {{ promo ( img=img,promo="1", minH="[300px]" )}}
+   {# {{ promo ( img=img,promo="1", minH="[300px]" )}}
    {{ promoGame( img=img, promoGame_title="TOP 10" , icon="star" , icon_color="highlight-green",  sample_img="Top_GameIcon" ) }}
    {{ promoGame( img=img, promoGame_title="New" , icon="new" , icon_color="highlight-blue" ,  sample_img="New_GameIcon" ) }}
    {{ promoGame( img=img, promoGame_title="Recommended" , icon="good" , icon_color="theme-red" ,  sample_img="Recommand_GameIcon" ) }}
@@ -15,6 +15,6 @@
    {{ infoBoard( img=img ) }}
 
    {{ gameCategory(img=img) }}
-   {{ VIPPage() }}
+   {{ VIPPage() }} #}
 
 {% endblock %}
