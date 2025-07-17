@@ -1,9 +1,22 @@
 
+:root {
+    --primary-color: rgb(24, 72, 120);
+    --secondary-color: rgb(33,37,41);
+    --default-gradient: linear-gradient(to right, var(--secondary-color), var(--primary-color));
+}
+body {
+    padding-top: 0;
+    padding-bottom: 0;
+}
 
 .logo img{
     height: 40px;
+};
+header nav{
+    background: var(--default-gradient); // 修正了 background-gradient 為 background
 }
 
 footer {
     min-height: 100px;
+    background: var(--default-gradient);
 }

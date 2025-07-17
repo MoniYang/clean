@@ -1,24 +1,27 @@
 
 
  {% macro Header(img) %}
-   <header data-bs-theme="dark" class="bg-dark text-white"   >
+   <header data-bs-theme="dark" class= text-white"   >
     
-      <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+      <nav class="navbar navbar-expand-md navbar-dark fixed-top ">
          <div class="container  ">
             <a class="navbar-brand logo" href="#"><img src="{{img}}/logo.png" alt=""></a> 
          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation"> 
             <span class="navbar-toggler-icon"></span> 
             </button> 
             <div class="navbar-collapse" id="navbarCollapse"> 
-               <ul class="navbar-nav me-auto mb-2 mb-md-0 "> 
+               <ul class="navbar-nav ml-auto mb-2 mb-md-0 "> 
                   <li class="nav-item text-white">
-                  <a class="nav-link   active" aria-current="page" href="#">Home</a> 
+                  <a class="nav-link   active" aria-current="page" href="#">公司介紹</a> 
                   </li> 
                   <li class="nav-item"> 
-                     <a class="nav-link text-white" href="#">Link</a> 
+                     <a class="nav-link text-white" href="#">營業項目</a> 
                   </li> 
                   <li class="nav-item"> 
-                     <a class="nav-link disabled" aria-disabled="true">Disabled</a>
+                     <a class="nav-link disabled" aria-disabled="true">服務實例</a>
+                  </li> 
+                  <li class="nav-item"> 
+                     <a class="nav-link disabled" aria-disabled="true">聯絡我們</a>
                   </li> 
                </ul> 
             </div> 

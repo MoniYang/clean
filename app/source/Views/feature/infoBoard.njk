@@ -1,16 +1,20 @@
-
 {% from 'source/Views/components/button.njk' import button , buttonBorder %}
- {% macro infoBoard( img, promo,minH ) %}
-   <section class="flex flex-initial p-4 ">
-    <div class="flex flex-1 flex-col min-h-[500px] w-full bg-contain bg-no-repeat bg-left-top bg-special-infoBoard" style="background-image:url('{{ img }}/Pic_InfoBoard.jpg');">
-      <div class="flex flex-1 flex-col justify-end px-3 space-y-4 pb-4">
-        <h3 class="text-2xl text-White-opacity1">The Best Online Casino<br>Gaming Experience</h3>
-        <p class="text-White-opacity2 text-xs">ChatPlay is a fully-fledged online casino which goes beyond what the others have to offer. GAMB leads the way in an online gaming since 2014, standing out as the go-to casino for gaming enthusiasts. </p>
-        <p class="text-White-opacity2 text-xs">Enjoy fast cashouts and 24/7 support that make playing a breeze. Our secure and easy-to-use site gives you a top-notch gaming experience, with a huge selection of games right at your fingertips.</p>
-        {{button ( type='red', flex="flex-[1 0 auto]", text="Contact us")}}
-      </div>
-     
-    </div>
-  
-   </section>
+{% macro infoBoard( img, promo,minH ) %}
+<div class="row featurette">
+  <div class="col-md-7">
+    <h2 class="featurette-heading fw-normal lh-1">First featurette heading.
+      <span class="text-body-secondary">It’ll blow your mind.</span></h2>
+    <p class="lead">Some great placeholder content for the first featurette here. Imagine some exciting prose here.</p>
+  </div>
+  <div class="col-md-5">
+    <svg aria-label="Placeholder: 500x500"
+      class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" height="500"
+      preserveAspectRatio="xMidYMid slice" role="img" width="500" xmlns="http://www.w3.org/2000/svg">
+      <title>Placeholder</title>
+      <rect width="100%" height="100%" fill="var(--bs-secondary-bg)">
+
+      </rect><text x="50%" y="50%" fill="var(--bs-secondary-color)" dy=".3em">500x500</text>
+    </svg>
+  </div>
+</div>
 {% endmacro %}
