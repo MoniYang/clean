@@ -1,0 +1,21 @@
+{% from 'source/Views/components/button.njk' import button , buttonBorder %}
+{% macro ServiceItem( img, title,content,pic ) %}
+
+
+  <div class="col-md-3">
+    <div class="service-item">
+      <div class="service-item__img">
+        <img src="{{img}}/demo/clean_{{pic}}.jpg" alt="">
+      </div>
+      <div class="service-item__content">
+        <h2 class="text-style-title fw-normal">{{title}}</h2>
+        <p>{{content}}</p>
+           <button class="icon-btn">
+              <i class="bi bi-link-45deg"></i>
+            </button>
+      </div>
+    </div>
+
+</div>
+{% endmacro %}
+

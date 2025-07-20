@@ -7,15 +7,12 @@
     <script src="https://cdn.tailwindcss.com"></script>
 
 
- <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/carousel/">
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/carousel/">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-  <link rel="stylesheet" href="../../style/scss/carousel.css">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link  href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
-    <link rel="stylesheet" href="../../style/scss/style.css"
-
-
-    
+    <link rel="stylesheet" href="../../style/scss/carousel.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">    
+    <link  href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../style/scss/style.css">
     <title>{{ title }}</title>
 </head>
     {% from 'source/Views/components/dropdown.njk' import dropdown %}
@@ -24,17 +21,12 @@
     {% from 'source/Views/components/card.njk' import Card %}
     {% from 'source/Views/components/stake.njk' import stake, user %}
     {% from 'source/Views/layout/header.njk' import Header %}
-    {% from 'source/Views/feature/promo.njk' import promo %}
+    {% from 'source/Views/feature/service.njk' import ServiceItem %}
     {% from 'source/Views/feature/infoBoard.njk' import infoBoard %}
-    {% from 'source/Views/feature/promoGame.njk' import promoGame, provider , promoGame2%}
+    {% from 'source/Views/feature/pageSection.njk' import pageSection %}
+    {# {% from 'source/Views/feature/promoGame.njk' import promoGame, provider , promoGame2%} #}
     {% from 'source/Views/layout/footer.njk' import footer %}
-    {% from 'source/Views/layout/side_menu.njk' import SideMenu %}
-    {% from 'source/Views/layout/providerPage.njk' import providerPage %}
-    {% from 'source/Views/layout/profile.njk' import profile %}
-    {% from 'source/Views/layout/promoPage.njk' import promoPage %}
-    {% from 'source/Views/layout/walletPage.njk' import walletPage %}
-    {% from 'source/Views/layout/gameCategory.njk' import gameCategory %}
-    {% from 'source/Views/layout/VIPPage.njk' import VIPPage %}
+ 
    
 
 <body data-layout="desktop" class="flex flex-col min-h-screen ">
@@ -43,10 +35,10 @@
 
        {% block header  %}
             {% call Header(img=img) %}
-                 </div>
+                 
             {% endcall %}
         {% endblock %}
-        <main class="flex flex-1 flex-col pb-[50px]">
+        <main class="flex flex-1 flex-col ">
             {% block content %}
                  
             {% endblock %}
@@ -64,5 +56,6 @@
 </body>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-<script src="{{ source_path }}script/script.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/simple-parallax-js@5.6.2/dist/simpleParallax.min.js"></script>
+    <script src="{{ source_path }}script/script.js"></script>
 </html>

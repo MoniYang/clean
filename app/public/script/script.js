@@ -1,220 +1,130 @@
   
 
-  let swiper = new Swiper(".mySwiper", {
-      pagination: {
-          el: ".swiper-pagination",
-      },
+  
+
+// 轮播图视差效果
+function initCarouselParallax() {
+    const carousel = document.getElementById('carouselExampleCaptions');
+    if (!carousel) return;
+
+    let ticking = false;
+    let lastScrollY = window.scrollY;
+    let initialOffset = {};
+    
+    function updateCarouselParallax() {
+        const images = document.querySelectorAll('.carousel .parallax-carousel');
+        const speed = 0.3;
+        const scrolled = window.scrollY;
+
+        images.forEach(img => {
+            const container = img.closest('.carousel-item');
+            if (!container) return;
+
+            // 只处理当前显示的轮播项
+            if (container.classList.contains('active')) {
+                // 如果是新激活的项，记录初始偏移
+                if (!initialOffset[img.src]) {
+                    initialOffset[img.src] = scrolled;
+                }
+
+                // 计算相对于初始位置的偏移
+                const relativeScroll = scrolled - initialOffset[img.src];
+                const yPos = relativeScroll * speed;
+                
+                // 限制移动范围
+                const maxMove = container.offsetHeight * 0.2; // 最大移动距离为容器高度的20%
+                const limitedYPos = Math.max(Math.min(yPos, maxMove), -maxMove);
+                
+                img.style.transform = `translate3d(0, ${limitedYPos}px, 0)`;
+            } else {
+                // 重置非活动项的位置
+                img.style.transform = 'translate3d(0, 0, 0)';
+                delete initialOffset[img.src];
+            }
+        });
+
+        ticking = false;
+    }
+
+    window.addEventListener('scroll', function() {
+        lastScrollY = window.scrollY;
+        if (!ticking) {
+            window.requestAnimationFrame(function() {
+                updateCarouselParallax();
+                ticking = false;
+            });
+            ticking = true;
+        }
     });
 
+    // 监听轮播图切换事件
+    carousel.addEventListener('slide.bs.carousel', function () {
+        // 重置所有图片位置
+        const images = document.querySelectorAll('.carousel .parallax-carousel');
+        images.forEach(img => {
+            img.style.transform = 'translate3d(0, 0, 0)';
+        });
+        initialOffset = {}; // 重置初始偏移记录
+    });
 
-  let PromoGameSwiper = new Swiper(".promoGame", {
-    slidesPerView: 'auto',
-  });
+    // 初始化轮播图图片样式
+    const carouselImages = document.querySelectorAll('.carousel .parallax-carousel');
+    carouselImages.forEach(img => {
+        img.style.willChange = 'transform';
+        img.style.transition = 'transform 0.2s ease-out';
+    });
 
+    // 初始化执行一次
+    updateCarouselParallax();
+}
 
-  function toggleDropdown(button) {
-    const dropdown = button.closest('[data-component="dropdown"]');
-    const isOpen = dropdown.getAttribute('data-open') === 'true';
-    dropdown.setAttribute('data-open', !isOpen);
-  }
-
-  function sideMenuOpen() {
-    const sideMenu = document.querySelector('.side-menu');
-    const allElements = document.querySelectorAll('[data-open]');
-  allElements.forEach((el) => {
-    if (!el.classList.contains('.side-menu') && !el.classList.contains('.side-menu')) {
-      el.setAttribute('data-open', 'false');
-  }
-});
-    // 檢查目前的 data-open 屬性值
-    const isOpen = sideMenu.getAttribute('data-open') === 'true';
+// 普通图片视差效果
+function initNormalParallax() {
+    let ticking = false;
+    let lastScrollY = window.scrollY;
     
-    // 切換 data-open 屬性
-    sideMenu.setAttribute('data-open', !isOpen);
-}
+    function updateNormalParallax() {
+        const images = document.querySelectorAll('.parallax-carousel:not(.carousel .parallax-carousel) img');
+        const scrolled = window.scrollY;
+        const speed = 0.2; // 普通图片使用更温和的视差效果
 
-function prodiverOpen() {
-   const allElements = document.querySelectorAll('[data-open]');
-   allElements.forEach((el) => {
-     if (!el.classList.contains('provider')) {
-       el.setAttribute('data-open', 'false');
-     }
-   });
+        images.forEach(img => {
+            const container = img.closest('.parallax-carousel');
+            const containerRect = container.getBoundingClientRect();
+            
+            if (containerRect.top < window.innerHeight && containerRect.bottom > 0) {
+                const yPos = ((containerRect.top - window.innerHeight/2) * speed);
+                img.style.transform = `translate3d(0, ${yPos}px, 0)`;
+            }
+        });
 
-  // Set `data-open` to 'true' for the `.provider` element
-  const provider = document.querySelector('.provider');
-  if (provider) {
-    provider.setAttribute('data-open', 'true');
-  }
-}
-function homeEvent() {
-  
-  const allElements = document.querySelectorAll('[data-open]');
-  allElements.forEach((el) => {
-    if (!el.classList.contains('provider')) {
-      el.setAttribute('data-open', 'false');
+        ticking = false;
     }
-  });
+
+    window.addEventListener('scroll', function() {
+        lastScrollY = window.scrollY;
+        if (!ticking) {
+            window.requestAnimationFrame(function() {
+                updateNormalParallax();
+                ticking = false;
+            });
+            ticking = true;
+        }
+    });
+
+    // 初始化普通图片样式
+    const normalImages = document.querySelectorAll('.parallax-carousel:not(.carousel .parallax-carousel) img');
+    normalImages.forEach(img => {
+        img.style.willChange = 'transform';
+        img.style.transition = 'transform 0.1s cubic-bezier(0,0,0,1)';
+    });
+
+    // 初始化执行一次
+    updateNormalParallax();
 }
 
-
-
-function prodiverclose() {
-  
-  const provider = document.querySelector('.provider');
-  provider.setAttribute('data-open', 'false');
-  const allElements = document.querySelectorAll('[data-open]');
-  allElements.forEach((el) => {
-    if (!el.classList.contains('provider') && !el.classList.contains('provider')) {
-      el.setAttribute('data-open', 'false');
-  }
-});
-}
-
-function profileEvent() {
-  const profile = document.querySelector('.profile');
-  const allElements = document.querySelectorAll('[data-open]');
-  allElements.forEach((el) => {
-    if (!el.classList.contains('profile') && !el.classList.contains('profile')) {
-      el.setAttribute('data-open', 'false');
-  }
-});
-  
-  // 檢查目前的 data-open 屬性值
-  const isOpen = profile.getAttribute('data-open') === 'true';
-  
-  // 切換 data-open 屬性
-  profile.setAttribute('data-open', !isOpen);
-}
-
-function promoEvent() {
-  const promo = document.querySelector('.promo');
-  
-  const allElements = document.querySelectorAll('[data-open]');
-  allElements.forEach((el) => {
-    if (!el.classList.contains('promo') && !el.classList.contains('promo')) {
-      el.setAttribute('data-open', 'false');
-  }
-});
-  // 檢查目前的 data-open 屬性值
-  const isOpen = promo.getAttribute('data-open') === 'true';
-  
-  // 切換 data-open 屬性
-  promo.setAttribute('data-open', !isOpen);
-}
-
-function walletEvent() {
-  const wallet = document.querySelector('.wallet');
-  const allElements = document.querySelectorAll('[data-open]');
-  allElements.forEach((el) => {
-    if (!el.classList.contains('wallet') && !el.classList.contains('wallet')) {
-      el.setAttribute('data-open', 'false');
-  }
-});
-  // 檢查目前的 data-open 屬性值
-  const isOpen = wallet.getAttribute('data-open') === 'true';
-  
-  // 切換 data-open 屬性
-  wallet.setAttribute('data-open', !isOpen);
-}
-
-const deposit = document.querySelector('[data-page="deposit"]');
-const withdraw = document.querySelector('[data-page="withdraw"]');
-const betHistory = document.querySelector('[data-page="betHistory"]');
-const statement = document.querySelector('[data-page="statement"]');
-const withdrawButton = document.querySelector('[onclick="withdrawEvent(this)"]'); // Select withdraw button
-const depositButton = document.querySelector('[onclick="depositEvent(this)"]'); // Select deposit button
-const statementButton = document.querySelector('[onclick="statementEvent(this)"]'); // Select statemnet button
-const betHistoryButton = document.querySelector('[onclick="betHistoryEvent(this)"]'); // Select deposit button
-// deposit.setAttribute('data-open', true);
-// depositButton.setAttribute('data-selected', true);
-
-function depositEvent(button) {
- 
-  // Toggle `data-open` attribute values
-  const isOpen = deposit.getAttribute('data-open') === 'true';
-  deposit.setAttribute('data-open', !isOpen);
-  withdraw.setAttribute('data-open', isOpen);
-  statement.setAttribute('data-open', isOpen);
-  betHistory.setAttribute('data-open', isOpen);
-
- // Set the `data-selected` attribute on the deposit button and clear it on the withdraw button
- button.setAttribute('data-selected', true);
- withdrawButton.setAttribute('data-selected', false);
- betHistoryButton.setAttribute('data-selected', false);
- statementButton.setAttribute('data-selected', false);
-
-}
-
-function withdrawEvent(button) {
-  // const deposit = document.querySelector('[data-page="deposit"]');
-  // const withdraw = document.querySelector('[data-page="withdraw"]');
-
-  // Toggle `data-open` attribute values
-  const isOpen = withdraw.getAttribute('data-open') === 'true';
-  deposit.setAttribute('data-open', isOpen);
-  withdraw.setAttribute('data-open', !isOpen);
-  statement.setAttribute('data-open', isOpen);
-  betHistory.setAttribute('data-open', isOpen);
-
- // Set the `data-selected` attribute on the withdraw button and clear it on the deposit button
- button.setAttribute('data-selected', true);
- depositButton.setAttribute('data-selected', false);
- betHistoryButton.setAttribute('data-selected', false);
- statementButton.setAttribute('data-selected', false);
-
-}
-
-
-function statementEvent(button) {
-
-  // Toggle `data-open` attribute values
-  const isOpen = statement.getAttribute('data-open') === 'true';
-  statement.setAttribute('data-open', !isOpen);
-  deposit.setAttribute('data-open', isOpen);
-  betHistory.setAttribute('data-open', isOpen);
-  withdraw.setAttribute('data-open', isOpen);
-
- // Set the `data-selected` attribute on the withdraw button and clear it on the deposit button
- button.setAttribute('data-selected', true);
- depositButton.setAttribute('data-selected', false);
- withdrawButton.setAttribute('data-selected', false);
- betHistoryButton.setAttribute('data-selected', false);
-}
-
-function betHistoryEvent(button) {
-
-  // Toggle `data-open` attribute values
-  const isOpen = betHistory.getAttribute('data-open') === 'true';
-  betHistory.setAttribute('data-open', !isOpen);
-  deposit.setAttribute('data-open', isOpen);
-  statement.setAttribute('data-open', isOpen);
-  withdraw.setAttribute('data-open', isOpen);
-
- // Set the `data-selected` attribute on the withdraw button and clear it on the deposit button
- button.setAttribute('data-selected', true);
- depositButton.setAttribute('data-selected', false);
- withdrawButton.setAttribute('data-selected', false);
- statementButton.setAttribute('data-selected', false);
-}
-
-
-const menuSlot = document.querySelector('[data-menu-item="slot"]');
-const menuPageSlot = document.querySelector('.slot');
-
-menuSlot.addEventListener('click', function () {
-  menuPageSlot.setAttribute('data-open', 'true');
-  const sideMenu = document.querySelector('.side-menu');
-  sideMenu.setAttribute('data-open', 'false');
-});
-
-const menuVIP = document.querySelector('[data-menu-item="vip"]');
-const menuPageVIP = document.querySelector('.VIPPage');
-
-
-
-menuVIP.addEventListener('click', function () {
-  menuPageVIP.setAttribute('data-open', 'true');
-  const sideMenu = document.querySelector('.side-menu');
-  sideMenu.setAttribute('data-open', 'false');
+// 页面加载完成后初始化所有视差效果
+document.addEventListener('DOMContentLoaded', function() {
+    initCarouselParallax();
+    initNormalParallax();
 });
