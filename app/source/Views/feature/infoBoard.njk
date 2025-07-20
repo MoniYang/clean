@@ -2,16 +2,14 @@
 {% macro infoBoard( img, promo,minH ) %}
 
     <div class="row about-us__content">
-        <div class="col-md-5">
+        <div class="col-lg-5 ">
             <div class="about-us">
                 <h2 class="text-title">為何選擇我們
                 </h2>
-                <div class="about-us__img parallax-carousel">
-                    <img src="{{ img }}/demo/clean_3.jpg" alt=""></div>
-
-                </div>
+                <div class="about-us__img" style="background-image: url('{{ img }}/demo/clean_7.jpg');"></div>
             </div>
-            <div class="col-md-7">
+            </div>
+            <div class="col-lg-7">
                 <div class="about-us__container">
                     <div class="row ">
                         <div class="col-md-6 ">
@@ -41,7 +39,7 @@
                         </div>
                         <div class="col-md-12">
                             <div class="info-board-item__content">
-                                <h2 class="text-style-title fw-normal">{{ title }}</h2>
+                                <h2 class="text-style-title">{{ title }}</h2>
                                 <p>{{ content }}</p>
                             </div>
                          

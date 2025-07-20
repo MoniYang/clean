@@ -134,7 +134,7 @@ header nav {
 }
 
 .info-board-item {
-  padding: 0 3rem 3rem 3rem;
+  padding: 0 10% 3rem 10%;
   border: 1px solid #eee;
   margin-bottom: 5rem;
   background-color: white;
@@ -167,12 +167,14 @@ header nav {
   position: relative;
   margin: 0 auto 1rem;
   z-index: 1;
+  font-size: 1.25rem;
+  font-weight: bold;
 }
 .info-board-item .text-style-title:after {
   content: "";
   position: absolute;
   background-color: hsla(54, 82%, 43%, 0.56);
-  height: 10px;
+  height: 5px;
   right: -10px;
   bottom: 0;
   left: 10px;
@@ -180,9 +182,11 @@ header nav {
 }
 
 .about-us {
-  position: relative;
   display: flex;
   flex-wrap: wrap;
+  position: relative;
+  align-items: flex-start;
+  height: 100%;
 }
 .about-us-area {
   margin: 60px auto 100px;
@@ -193,18 +197,31 @@ header nav {
 }
 .about-us__content {
   position: relative;
-  top: 80px;
+  top: 50px;
 }
 .about-us__container {
   margin-top: 80px;
+}
+.about-us__img {
+  width: 100%;
+  height: 80%;
+  background-size: cover;
+  background-position: center;
+}
+@media (max-width: 991px) {
+  .about-us__img {
+    height: 300px;
+    margin-top: 2rem;
+  }
 }
 .about-us .text-title {
   font-size: 2rem;
   font-weight: 700;
   color: var(--primary-color);
+  align-self: flex-start;
   position: relative;
   z-index: 1;
-  top: -30px;
+  top: 0px;
 }
 .about-us .text-title:after {
   content: "";
@@ -350,6 +367,10 @@ header nav {
   text-align: center;
   color: white;
   border-bottom: 1px solid white;
+  font-size: 1rem;
+}
+.service-item p {
+  font-size: 0.75rem;
 }
 
 .footer {
@@ -478,6 +499,15 @@ header nav {
   overflow: hidden;
   width: 100%;
 }
+.carousel .carousel-item:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+}
 .carousel .carousel-item img.parallax-carousel {
   position: absolute;
   top: -20%;
@@ -497,6 +527,32 @@ header nav {
 .carousel .carousel-item .carousel-caption {
   position: absolute;
   z-index: 2;
+  right: 15%;
+  bottom: 30%;
+  left: auto;
+  padding-top: 1.25rem;
+  padding-bottom: 1.25rem;
+  color: #fff;
+  text-align: right;
+}
+.carousel .carousel-item h2 {
+  font-size: 3rem;
+  font-weight: 700;
+  color: white;
+  text-shadow: 4px 6px 7px rgba(0, 0, 0, 0.5);
+  margin-left: auto;
+  line-height: 1.5;
+  margin-bottom: 1rem;
+}
+@media (max-width: 768px) {
+  .carousel .carousel-item h2 {
+    font-size: 1.5rem;
+  }
+}
+@media (max-width: 480px) {
+  .carousel .carousel-item h2 {
+    width: 80%;
+  }
 }
 @media (max-width: 768px) {
   .carousel .carousel-item {
