@@ -1,16 +1,49 @@
-
 {% from 'source/Views/components/button.njk' import button , buttonBorder %}
- {% macro infoBoard( img, promo,minH ) %}
-   <section class="flex flex-initial p-4 ">
-    <div class="flex flex-1 flex-col min-h-[500px] w-full bg-contain bg-no-repeat bg-left-top bg-special-infoBoard" style="background-image:url('{{ img }}/Pic_InfoBoard.jpg');">
-      <div class="flex flex-1 flex-col justify-end px-3 space-y-4 pb-4">
-        <h3 class="text-2xl text-White-opacity1">The Best Online Casino<br>Gaming Experience</h3>
-        <p class="text-White-opacity2 text-xs">ChatPlay is a fully-fledged online casino which goes beyond what the others have to offer. GAMB leads the way in an online gaming since 2014, standing out as the go-to casino for gaming enthusiasts. </p>
-        <p class="text-White-opacity2 text-xs">Enjoy fast cashouts and 24/7 support that make playing a breeze. Our secure and easy-to-use site gives you a top-notch gaming experience, with a huge selection of games right at your fingertips.</p>
-        {{button ( type='red', flex="flex-[1 0 auto]", text="Contact us")}}
-      </div>
-     
-    </div>
-  
-   </section>
-{% endmacro %}
+{% macro infoBoard( img, promo,minH ) %}
+
+    <div class="row about-us__content">
+        <div class="col-lg-5 ">
+            <div class="about-us">
+                <h2 class="text-title">為何選擇我們
+                </h2>
+                <div class="about-us__img" style="background-image: url('{{ img }}/demo/clean_7.jpg');"></div>
+            </div>
+            </div>
+            <div class="col-lg-7">
+                <div class="about-us__container">
+                    <div class="row ">
+                        <div class="col-md-6 ">
+                            {{ infoBoardItem( title="專業服務，經驗豐富", content="豐富清潔經驗，專業細心服務，打造潔淨舒適的生活環境。 ",demoImg="team_4", img=img) }}
+                        </div>
+                        <div class="col-md-6 ">
+                            {{ infoBoardItem( title="專業團隊，值得信賴 ", content="專業清潔團隊，細心負責，保障環境清潔與健康，讓您安心無憂。 ",demoImg="team_2", img=img) }}
+                        </div>
+                        <div class="col-md-6">
+                            {{ infoBoardItem( title="品質卓越、服務可靠 ", content="嚴選清潔用品，細節到位，打造安全、舒適的居家與工作環境。 ",demoImg="team_1", img=img) }}
+                        </div>
+                        <div class="col-md-6">
+                            {{ infoBoardItem( title="貼心服務，專業諮詢", content="了解您的需求，提供專業清潔建議，確保服務貼心又周到。 ",demoImg="team_3", img=img) }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {% endmacro %}
+
+        {% macro infoBoardItem(title,content,demoImg,img) %}
+
+            <div class="info-board-item">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="info-board-item__img">
+                            <img src="{{ img }}/team/{{ demoImg }}.png" alt=""></div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="info-board-item__content">
+                                <h2 class="text-style-title">{{ title }}</h2>
+                                <p>{{ content }}</p>
+                            </div>
+                         
+                        </div>
+                    </div>
+                </div>
+            {% endmacro %}

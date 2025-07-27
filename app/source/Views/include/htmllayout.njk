@@ -6,272 +6,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.tailwindcss.com"></script>
 
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-  <link type="text/css"  rel="stylesheet" href="../../css/icon.css" />
-
-
-    <style type="text/tailwindcss">
-       @layer utilities  {
-    :root {
-
-        --swiper-pagination-color: white;
-        --swiper-pagination-bullet-inactive-color: var(--swiper-pagination-color);
-        --swiper-pagination-bottom: 0;
-
-        --theme-red: #FF0000;
-        --theme-dark-red: #C8102E;
-        --theme-dark-red2: #400000;
-        --theme-dark-red3: #840000;
-
-        --highlight-green: #03FF00;
-        --highlight-blue:#71c7d4;
-        --highlight-yellow: #FFFF00;
-       
-        --grey:#888888 ;
-        --brown:#400000;
-
-        --dark-grey: #171b24;
-        --info-board: #24232b;
-
-        --black-opacity-1                  : hsla( 0, 0%, 0%, .87 );
-        --black-opacity-2                  : hsla( 0, 0%, 0%, .70 );
-        --black-opacity-3                  : hsla( 0, 0%, 0%, .54 );
-        --black-opacity-4                  : hsla( 0, 0%, 0%, .32 );
-        --black-opacity-5                  : hsla( 0, 0%, 0%, .16 );
-        --black-opacity-6                  : hsla( 0, 0%, 0%, .08 );
-
-        --white-opacity-1                  : hsla( 0, 0%, 100%, .87 );
-        --white-opacity-2                  : hsla( 0, 0%, 100%, .70 );
-        --white-opacity-3                  : hsla( 0, 0%, 100%, .54 );
-        --white-opacity-4                  : hsla( 0, 0%, 100%, .32 );
-        --white-opacity-5                  : hsla( 0, 0%, 100%, .16 );
-        --white-opacity-6                  : hsla( 0, 0%, 100%, .08 );
-    }
-   
-
-    .theme-red {
-        color: var(--theme-red);
-    }
-    .highlight-green {
-        color: var(--highlight-green);
-    }
-    .highlight-blue {
-        color: var(--highlight-cyan);
-    }
-    .highlight-yellow {
-        color: var(--highlight-yellow);
-    }
-    .dark-grey {
-        color: var(--dark-grey);
-    }
-    .dark-red {
-        color: var(--theme-dark-red);
-    }
-    .dark-red2 {
-        color: var(--theme-dark-red2);
-    }
-    .dark-red3 {
-        color: var(--theme-dark-red3);
-    }
-    .Black-opacity1 {
-        color: var(--black-opacity-1);
-    }
-    .Black-opacity2 {
-        color: var(--black-opacity-2);
-    }
-    .Black-opacity3 {
-        color: var(--black-opacity-3);
-    }
-    .Black-opacity4 {
-        color: var(--black-opacity-4);
-    }
-    .Black-opacity5 {
-        color: var(--black-opacity-5);
-    }
-    .Black-opacity6 {
-        color: var(--black-opacity-6);
-    }
-    .White-opacity1 {
-        color: var(--white-opacity-1);
-    }
-    .White-opacity2 {
-        color: var(--white-opacity-2);
-    }
-    .White-opacity3 {
-        color: var(--white-opacity-3);
-    }
-    .White-opacity4 {
-        color: var(--white-opacity-4);
-    }
-    .White-opacity5 {
-        color: var(--white-opacity-5);
-    }
-    .White-opacity6 {
-        color: var(--white-opacity-6);
-    }
-
-    .special-infoBoard {
-        color: var(--info-board);
-    }
-    .modal[data-open="false"] {
-        @apply  opacity-0 invisible;
-    }
-    .modal[data-open="true"] {
-        @apply  opacity-100 visible;
-    }
-    .open {
-        @apply transition duration-300 translate-x-0 ease-out;
-    }
-    .close {
-        @apply transition duration-300 -translate-x-full ease-out;
-    }
-
-    [data-component="dropdown"][data-open="true"] > .dropdown-content {
-    @apply visible;
-    }
-
-    [data-component="dropdown"][data-open="false"] > .dropdown-content {
-    @apply hidden;
-    }
-
-    .appItem[data-selected="true"] > i:before {
-    @apply bg-theme-red;
-    }
-    .appItem[data-selected="true"] > span {
-        @apply text-theme-red;
-    }
-    .side-menu[data-open="true"] {
-    @apply open;
-    }
-    .side-menu[data-open="false"] {
-    @apply close;
-    }
-
-    .provider[data-open="true"] {
-        @apply open;
-    }
-    .provider[data-open="false"] {
-        @apply close;
-    }
-    .profile[data-open="true"] {
-        @apply open;
-    }
-    .profile[data-open="false"] {
-        @apply close;
-    }
-    .promo[data-open="true"] {
-        @apply open;
-    }
-    .promo[data-open="false"] {
-        @apply close;
-    }
-    .wallet[data-open="true"] {
-        @apply open;
-    }
-    .wallet[data-open="false"] {
-        @apply close;
-    }
-    .VIPPage[data-open="true"] {
-        @apply open;
-    }
-    .VIPPage[data-open="false"] {
-        @apply close;
-    }
-    .slot[data-open="true"] {
-        @apply open;
-    }
-    .slot[data-open="false"] {
-        @apply close;
-    }
-    
-    .wallet button[data-selected="true"] {
-        @apply bg-white text-theme-red border border-theme-red rounded-full ;
-    }
-    [data-page="deposit"][data-open="true"] {
-        @apply visible;
-    }
-    [data-page="deposit"][data-open="false"] {
-        @apply hidden;
-    }
-    [data-page="withdraw"][data-open="true"] {
-        @apply visible;
-    }
-    [data-page="withdraw"][data-open="false"] {
-        @apply hidden;
-    }
-    [data-page="statement"][data-open="true"] {
-        @apply visible;
-    }
-    [data-page="statement"][data-open="false"] {
-        @apply hidden;
-    }
-    [data-page="betHistory"][data-open="true"] {
-        @apply visible;
-    }
-    [data-page="betHistory"][data-open="false"] {
-        @apply hidden;
-    }
-    [data-page="VIPPage"][data-open="true"] {
-        @apply visible;
-    }
-    [data-page="VIPPage"][data-open="false"] {
-        @apply hidden;
-    }
-     [data-page="slot"][data-open="true"] {
-        @apply visible;
-    }
-    [data-page="slot"][data-open="false"] {
-        @apply hidden;
-    }
-
-}   
-    </style>
-
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        theme: {
-                            red:'var( --theme-red)'
-                        },
-                        highlight: {
-                            green: 'var(--highlight-green)',
-                            darkGreen: 'var(--highlight-dark-green)',
-                            blue: 'var(--highlight-blue)',
-                            yellow: 'var(--highlight-yellow)'
-                        },
-                        dark:{
-                            grey: 'var(--dark-grey)',
-                            red: 'var(--theme-dark-red)',
-                            red2: 'var(--theme-dark-red2)',
-                            red3: 'var(--theme-dark-red3)'
-                        },
-                        Black: {
-                            opacity1: 'var(--black-opacity-1)',
-                            opacity2: 'var(--black-opacity-2)',
-                            opacity3: 'var(--black-opacity-3)',
-                            opacity4: 'var(--black-opacity-4)',
-                            opacity5: 'var(--black-opacity-5)',
-                            opacity6: 'var(--black-opacity-6)'
-                        },
-                        White: {
-                            opacity1: 'var(--white-opacity-1)',
-                            opacity2: 'var(--white-opacity-2)',
-                            opacity3: 'var(--white-opacity-3)',
-                            opacity4: 'var(--white-opacity-4)',
-                            opacity5: 'var(--white-opacity-5)',
-                            opacity6: 'var(--white-opacity-6)'
-                        },
-                        special: {
-                            infoBoard: 'var(--info-board)'
-                        }
-                    }
-                }
-            }
-        }
-    </script>
-    <title>{{ title }}</title>
+    <title>永立群股份有限公司</title>
+    <!-- description -->
+    <meta name="description" content="永立群股份有限公司">
+    <!-- keywords -->
+    <meta name="keywords" content="永立群股份有限公司">
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/carousel/">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="../../style/scss/carousel.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">    
+    <link  href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../style/scss/style.css">
 </head>
     {% from 'source/Views/components/dropdown.njk' import dropdown %}
     {% from 'source/Views/components/button.njk' import button , buttonBorder %}
@@ -279,49 +24,41 @@
     {% from 'source/Views/components/card.njk' import Card %}
     {% from 'source/Views/components/stake.njk' import stake, user %}
     {% from 'source/Views/layout/header.njk' import Header %}
-    {% from 'source/Views/feature/promo.njk' import promo %}
+    {% from 'source/Views/feature/service.njk' import ServiceItem %}
     {% from 'source/Views/feature/infoBoard.njk' import infoBoard %}
-    {% from 'source/Views/feature/promoGame.njk' import promoGame, provider , promoGame2%}
-    {% from 'source/Views/layout/footer.njk' import footer_content, footerMenu %}
-    {% from 'source/Views/layout/side_menu.njk' import SideMenu %}
-    {% from 'source/Views/layout/providerPage.njk' import providerPage %}
-    {% from 'source/Views/layout/profile.njk' import profile %}
-    {% from 'source/Views/layout/promoPage.njk' import promoPage %}
-    {% from 'source/Views/layout/walletPage.njk' import walletPage %}
-    {% from 'source/Views/layout/gameCategory.njk' import gameCategory %}
-    {% from 'source/Views/layout/VIPPage.njk' import VIPPage %}
+    {% from 'source/Views/feature/pageSection.njk' import pageSection %}
+    {# {% from 'source/Views/feature/promoGame.njk' import promoGame, provider , promoGame2%} #}
+    {% from 'source/Views/layout/footer.njk' import footer %}
+ 
    
 
-<body data-layout="desktop" class="flex flex-col min-h-full bg-black">
+<body data-layout="desktop" class="flex flex-col min-h-screen ">
     {% block body %}
   
 
        {% block header  %}
             {% call Header(img=img) %}
-                 {{ dropdown(img=img , minW="[60px]") }}
-                 <div class="flex ml-auto space-x-1"> 
-                 {{ stake() }}
-                 {{ user( img=img) }}
-                 </div>
+                 
             {% endcall %}
         {% endblock %}
-        <main class="flex flex-1 flex-col pb-[50px]">
+        <main class="flex flex-1 flex-col ">
             {% block content %}
                  
             {% endblock %}
-             {{footer_content(img=img)}}
+             {# {{footer_content(img=img)}} #}
         </main>
-        {{ SideMenu( img=img ) }}
-        {% call providerPage (img=img)%}{% endcall %}
+       {# / {{ SideMenu( img=img ) }} #}
+        {# {% call providerPage (img=img)%}{% endcall %}
         {{ profile(img=img) }}
         {{ promoPage (img=img) }}
-         {% call walletPage (img=img) %}{% endcall %}
+         {% call walletPage (img=img) %}{% endcall %} #}
         {% block footer  %}
-       
-        {{ footerMenu( selected=selected )}}{% endblock %}
+        {{ footer()}}
+       {% endblock %}
     {% endblock %}
 </body>
-
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-<script src="{{ source_path }}script/script.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/simple-parallax-js@5.6.2/dist/simpleParallax.min.js"></script>
+    <script src="{{ source_path }}script/script.js"></script>
 </html>

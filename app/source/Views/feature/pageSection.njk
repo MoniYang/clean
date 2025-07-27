@@ -1,0 +1,25 @@
+{% from 'source/Views/components/button.njk' import button , buttonBorder %}
+{% macro pageSection( img, title,content,pic ) %}
+
+<div class="page-section" style="background-image: url('{{img}}/demo/clean_{{pic}}.jpg');">
+  
+   <h2 class="text-title fw-bold">{{title}}</h2>
+    <ul class="page-section__list">
+        <li>
+           <a href="#">
+            <i  class="bi-house"></i>
+            </a>
+        </li>
+        <li>
+            <i class="bi-arrow-right"></i>
+        </li>
+        <li>
+            <a href="#">
+                公司介紹
+                </a>
+        </li>
+    </ul>
+ 
+</div>
+{% endmacro %}
+

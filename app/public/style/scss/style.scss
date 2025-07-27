@@ -1,0 +1,617 @@
+
+:root {
+    --primary-color: hsl(196.25deg 78.34% 40.23%);
+    --secondary-color: hsl(210deg 79.77% 39.55%);
+    --highlight-color: hsl(54, 82%, 43%);
+    --default-gradient: linear-gradient(to right, var(--secondary-color), hsl(196.25deg 78.34% 40.23%));
+
+    --bs-navbar-toggler-padding-x: 0;
+    --bs-navbar-toggler-padding-y: 0;
+    --bs-border-width: 0;
+    --bs-navbar-toggler-border-color: transparent;
+    --bs-navbar-padding-y: 0;
+}
+body {
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+.logo img{
+    height: 40px;
+};
+header nav{
+    background:linear-gradient(to right, hsl(210deg 79.77% 39.55% / 82%), hsl(196.25deg 78.34% 40.23% / 62%)); // 修正了 background-gradient 為 background
+}
+.navbar{
+    padding: 0;
+    // min-height: 60px;
+}
+.navbar-nav {
+    height: 60px;
+    align-items: center;
+
+   
+    @media (max-width: 768px) {
+        height: auto;
+    }
+}
+.nav-item{
+    flex: 1;
+    display: flex;
+    margin: 0 1rem;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+ 
+    position: relative;
+
+   
+    &:after {
+        content: '';
+        width: 0;
+        height: .375rem;
+        background: var(--highlight-color);
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        transition: all 0.3s ease;
+        transform: scaleX(0);
+    }
+    &:hover{
+        &:after {
+            content: '';
+            width: 100%;
+            // height: 2px;
+            // background: var(--highlight-color);
+            // position: absolute;
+            // bottom: 0;
+            // left: 0;
+            transition: all 0.3s ease;
+            transform: scaleX(1);
+        }
+    }
+    
+    + .nav-item {
+
+        @media (min-width: 768px) {
+            a{
+                white-space: nowrap;
+                &:before{
+                    content: '';
+                    width: 0;
+                    border-right: 1px solid var(--highlight-color);
+                    position: relative;
+                    left: -50%;
+                    top: 0;
+                    bottom: 0;
+        
+                }
+            }
+        }
+       
+    }
+
+}
+
+.navbar {
+  .navbar-collapse {
+    &.collapse {
+      display: none;
+      visibility: visible;
+   
+    }
+    &.show {
+        display: block;
+      }
+    
+    @media (min-width: 768px) {
+      &.collapse {
+        display: flex !important;
+      }
+    }
+  }
+  
+  .nav-item {
+    a {
+      padding: 0.5rem 1rem;
+      color: white;
+      text-decoration: none;
+      
+      &:hover {
+        color: rgba(255,255,255,0.8);
+      }
+      
+      &.disabled {
+        color: rgba(255,255,255,0.5);
+        pointer-events: none;
+      }
+    }
+  }
+}
+.navbar-toggler {
+    &:focus {
+        box-shadow: none;
+    }
+}
+
+.page-section{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 160px 0 80px;
+    background-size: cover;
+    background-position: bottom;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+
+    &__list{
+        display: flex;
+        flex-wrap: wrap;
+        width: 100%;
+        justify-content: center;
+        align-items: center;
+        list-style: none;
+        li{ 
+            font-size: 1rem;
+            margin: 0 .5rem;
+
+            a:hover {
+                color: var(--primary-color);
+            }
+        }
+    }
+}
+.info-board-item{
+
+    padding: 0 10% 3rem 10%;
+    border: 1px solid #eee;
+    margin-bottom: 5rem;
+    background-color: white;
+    display: flex;
+    flex-wrap: wrap;
+    // background: var(--default-gradient);
+
+    &__content {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+    }
+    
+    &__img{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 1rem;
+        background-color: white;
+        padding: 1rem;
+        border-radius: 100%;
+       
+        box-shadow: 0px 3px 5px 2px rgba(0, 0, 0, 0.1);
+        width: 120px;
+        height: 120px;
+        margin: -3rem auto  1rem;
+
+        img{
+            width: 80px;
+        }
+    }
+    .text-style-title {
+        color: var(--primary-color);
+        position: relative;
+        margin: 0 auto 1rem;
+        z-index: 1;
+        font-size: 1.25rem;
+        font-weight: bold;
+    
+        
+        &:after{
+            content: '';
+            position: absolute;
+            background-color: hsl(54deg 82% 43% / 56%);
+            height: 5px;
+            right: -10px;
+            bottom: 0;
+            left: 10px;
+            z-index: -1;
+        }
+    }
+}
+.about-us{
+    display: flex;
+    flex-wrap: wrap;
+    position: relative;
+    align-items: flex-start;
+    height: 100%;
+
+    &-area {
+        margin: 60px auto 100px;
+        padding: 0 30px 50px;
+        background-image: url('../../../public/style/img/deco/repeated-square.png');
+        background-position: center;
+        background-repeat: repeat;
+
+    }
+    &__content{
+        position: relative;
+        top: 50px;
+
+    }
+    &__container{
+        margin-top: 80px;
+    }
+    &__img{
+        width: 100%;
+        height: calc(100% - 20%);
+        background-size: cover;
+        background-position: center;
+
+        @media (max-width: 991px) {
+            height: 300px;
+            margin-top: 2rem;
+        }
+    }
+
+    .text-title{
+        font-size: 2rem;
+        font-weight: 700;
+        color: var(--primary-color);
+        align-self: flex-start;
+        position: relative;
+        z-index: 1;
+        top: 0px;
+
+        &:after{
+            content: '';
+            position: absolute;
+            background-color: hsl(54deg 82% 43% / 56%);
+            height: 20px;
+            right: -10px;
+            bottom: 0;
+            left: 10px;
+            z-index: -1;
+        }
+    }
+}
+[class*="page--"]{
+    padding-top: 120px;
+    padding-bottom: 120px;
+
+    @media (max-width: 768px) {
+        padding-top: 80px;
+        padding-bottom: 80px;
+    }
+
+    p + p {
+        margin-top: 1rem;
+    }
+
+    .sub-title{
+        font-size: 3rem;
+        color: hsl(196.25deg 78.34% 40.23% / 17%);
+        font-weight: 400;
+    }
+}
+
+.page--about-us{
+   .list {
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+    padding: 0;
+        li{
+            margin-bottom: 1rem;
+            white-space: nowrap;
+
+            + li {
+                
+                &:before{
+                    content: '/';
+                    width: 10px;
+                    height: 10px;
+                    color: var(--primary-color);
+                    margin: 0 .5rem;
+                   
+                }
+            }
+        }
+   }
+
+   .row  + .row {
+    margin-top: 80px;
+   }
+}
+.service-area{
+    background-image: url('../../../public/style/img/demo/clean_9.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    padding: 80px 0;
+    position: relative;
+    &:after{
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        width: 100%;
+        height: 100%;
+        background:hsl(0deg 0% 100% / 81.18%);
+    }
+}
+.service-item{
+    cursor: pointer;
+    position: relative;
+  
+    z-index: 1;
+    margin-bottom: 2rem;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.5);
+    &__img{
+        width: 100%;
+        height: 100%;
+        background-size: cover;
+        background-position: center;
+    }
+    &:hover {
+        .service-item__content{
+            opacity: 1;
+            overflow: visible;
+            visibility: visible;
+            .icon-btn{
+                margin-top: 1rem;
+                position: relative;
+               
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            
+                &:before{
+                    content: '';
+                    width: 36px;
+                    height: 36px;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    border-radius: 100%;
+                    border: 1px solid black;
+                    transition: all 0.3s ease;
+                    transform: translate(-50%, -50%) scale(0);
+                    left: 50%;
+                    top: 50%;
+                    position: absolute;
+                
+                }
+                &:hover:before {
+                    border: 1px solid white;
+                    border-radius: 100%;
+                    transform: translate(-50%, -50%) scale(1);
+                }
+            }
+        }
+    }
+    &__content{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        opacity: 0;
+        color: white;
+        transition: all 0.3s ease;
+        background-color: hsl(196.25deg 78.34% 40.23% / 60%);
+        padding: 1rem;
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        padding: 2rem;
+        width: calc(100% - 20px);
+        height: calc(100% - 20px);
+        visibility: hidden;
+        overflow: hidden;
+        backdrop-filter: blur(5px);
+    }
+    .text-style-title {
+        padding-bottom: .5rem;
+        margin-bottom: .5rem;
+        text-align: center;
+        color: white;
+        border-bottom: 1px solid white;
+        font-size: 1rem;
+       
+    }
+    p {
+        font-size: .75rem;
+    }
+}
+
+.footer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100px;
+    position: relative;
+    color: white;
+    padding: 2rem 0;
+    background: linear-gradient(to right, hsl(210deg 79.77% 39.55% / 82%), hsl(196.25deg 78.34% 40.23% / 62%));
+    // background-image: url('../../../public/style/img/deco/repeated-square.png');
+    // background-repeat: repeat;
+
+    &:after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: url('../../../public/style/img/deco/repeated-square.png');
+        background-repeat: repeat;
+        z-index: -1;
+    }
+    &__contact{
+        color: white;
+        text-align: center;
+    }
+    &__social{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 1.5rem;
+   
+        li{
+            margin: 0 1rem;
+            position: relative;
+            &:before{
+                content: '';
+                width: 48px;
+                height: 48px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                border-radius: 100%;
+                border: 1px solid black;
+                transition: all 0.3s ease;
+                transform: translate(-50%, -50%) scale(0);
+                left: 50%;
+                top: 50%;
+                position: absolute;
+            
+            }
+            &:hover:before {
+                border: 1px solid white;
+                border-radius: 100%;
+                transform: translate(-50%, -50%) scale(1);
+            }
+        }
+    }
+}
+
+.text-title{
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    // text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    position: relative;
+    z-index: 1;
+    top: -30px;
+
+    &:after{
+        content: '';
+        position: absolute;
+        background-color: hsl(54deg 82% 43% / 56%);
+        height: 20px;
+        right: -10px;
+        bottom: 0;
+        left: 10px;
+        z-index: -1;
+    }
+}
+
+.carousel-item{
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    &:before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+    }
+}
+
+.parallax-carousel {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+  
+  &:not(.carousel img) {
+    position: relative;
+    height: 400px;
+    // margin: 2rem 0;
+    
+    img {
+      position: absolute;
+      top: -20%;
+      left: 0;
+      width: 100%;
+      height: 140%;
+      object-fit: cover;
+      object-position: top center;
+      will-change: transform;
+      backface-visibility: hidden;
+      -webkit-backface-visibility: hidden;
+      transform: translateZ(0);
+      -webkit-transform: translateZ(0);
+    }
+  }
+}
+
+.carousel {
+  width: 100%;
+  
+  .carousel-item {
+    position: relative;
+    height: 75vh;
+    overflow: hidden;
+    width: 100%;
+    &:after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+    }
+    
+    img.parallax-carousel {
+      position: absolute;
+      top: -20%;
+      left: 0;
+      width: 100%;
+      height: 140%;
+      object-fit: cover;
+      object-position: top center;
+      will-change: transform;
+      backface-visibility: hidden;
+      -webkit-backface-visibility: hidden;
+      transform: translateZ(0);
+      -webkit-transform: translateZ(0);
+    }
+    
+    .carousel-caption {
+        position: absolute;
+        z-index: 2;
+        right: 15%;
+        bottom: 30%;
+        left: auto;
+        padding-top: 1.25rem;
+        padding-bottom: 1.25rem;
+        color: #fff;
+        text-align: right;
+    }
+    h2{
+        font-size: 3rem;
+        font-weight: 700;
+        color: white;
+        text-shadow:4px 6px 7px rgba(0, 0, 0, 0.5);
+        margin-left: auto;
+        line-height: 1.5;
+        margin-bottom: 1rem;
+        @media (max-width: 768px) {
+            font-size: 1.5rem;
+        }
+        @media (max-width: 480px) {
+            width: 80%;
+        }
+    }
+
+    @media (max-width: 768px) {
+        height: 50vh;
+    }
+  }
+}
