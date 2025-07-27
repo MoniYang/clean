@@ -1,35 +1,40 @@
 {% extends "source/Views/include/htmllayout.njk" %}
 
 {% block content %}
-<div id="carouselExampleCaptions" class="carousel slide bg-black mb-0" data-bs-ride="carousel" data-bs-interval="5000">
+<div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel" data-bs-interval="5000">
    <div class="carousel-indicators">
-      <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"
-         aria-current="true" aria-label="Slide 1"></button>
-      <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"
-         aria-label="Slide 2"></button>
-      <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2"
-         aria-label="Slide 3"></button>
+      <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+      <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+      <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+      <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="3" aria-label="Slide 4"></button>
    </div>
    <div class="carousel-inner">
       <div class="carousel-item active">
-         <img src="{{img}}/demo/clean_9.jpg" class=" parallax-carousel" alt="First slide">
+         <img src="{{img}}/banner_1.jpg" class=" parallax-carousel" alt="First slide">
          <div class="carousel-caption">
-            <h2 class="">專業清潔，讓潔淨無死角</h2>
-            <p>專人到府，細節處也不馬虎</p>
+            <h2 class="">高空外牆清洗</h2>
+            <p>外牆玻璃、磁磚、鋁板等進行高空吊掛清洗，恢復建築整潔外觀</p>
          </div>
       </div>
       <div class="carousel-item">
-         <img src="{{img}}/demo/clean_6.jpg" class="parallax-carousel" alt="Second slide">
+         <img src="{{img}}/banner_2.jpg" class="parallax-carousel" alt="Second slide">
          <div class="carousel-caption">
-            <h2 class=""> 安心信賴，百戶以上客戶推薦</h2>
-            <p>好評如潮，品質有口皆碑</p>
+            <h2 class="">外牆磁磚修補</h2>
+            <p>修復剝落、膨脹、龜裂磁磚，預防落塊危險，維護建築結構與美觀</p>
          </div>
       </div>
       <div class="carousel-item">
-         <img src="{{img}}/demo/clean_2.jpg" class="parallax-carousel" alt="Third slide">
+         <img src="{{img}}/banner_3.jpg" class="parallax-carousel" alt="Third slide">
          <div class="carousel-caption ">
-            <h2 class="">量身訂製清潔方案，滿足您的每個需求</h2>
-            <p>客製清潔，貼近您的生活需求</p>
+            <h2 class="">外牆磁磚檢查空心做標記</h2>
+            <p>敲擊方式逐面檢查磁磚是否空鼓，並明確標示異常區域，利於後續維修評估</p>
+         </div>
+      </div>
+      <div class="carousel-item">
+         <img src="{{img}}/banner_4.jpg" class="parallax-carousel" alt="Third slide">
+         <div class="carousel-caption ">
+            <h2 class="">玻璃矽利康舊換新</h2>
+            <p>清除老化、脫落的矽利康，重新施作防水填縫，預防滲水、延長建物壽命</p>
          </div>
       </div>
    </div>
