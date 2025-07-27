@@ -224,12 +224,14 @@ header nav{
     height: 100%;
 
     &-area {
-        margin: 60px auto 100px;
+        margin: 100px auto ;
         padding: 0 30px 50px;
         background-image: url('../../../public/style/img/deco/repeated-square.png');
         background-position: center;
         background-repeat: repeat;
-
+        @media (max-width: 768px) {
+            margin: 50px auto;
+        }
     }
     &__content{
         position: relative;
@@ -248,6 +250,7 @@ header nav{
         @media (max-width: 991px) {
             height: 300px;
             margin-top: 2rem;
+            background-position: center 10%;
         }
     }
 
@@ -358,6 +361,10 @@ header nav{
             opacity: 1;
             overflow: visible;
             visibility: visible;
+
+            p {
+
+            }
             .icon-btn{
                 margin-top: 1rem;
                 position: relative;
@@ -421,6 +428,15 @@ header nav{
     }
     p {
         font-size: .75rem;
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        height: 52px;
+        min-height: 52px;
+        margin: 0;
+        word-break: break-all;
     }
 }
 
@@ -552,10 +568,11 @@ header nav{
 
 .carousel {
   width: 100%;
+  margin-bottom: 0;
   
   .carousel-item {
     position: relative;
-    height: 75vh;
+    height: 90vh;
     overflow: hidden;
     width: 100%;
     &:after {
@@ -586,13 +603,15 @@ header nav{
     .carousel-caption {
         position: absolute;
         z-index: 2;
-        right: 15%;
+        right: auto;
         bottom: 30%;
-        left: auto;
+        left: 0%;
+        left: 10%;
         padding-top: 1.25rem;
         padding-bottom: 1.25rem;
         color: #fff;
         text-align: right;
+        width: calc(100% - 20%);
     }
     h2{
         font-size: 3rem;
@@ -605,13 +624,36 @@ header nav{
         @media (max-width: 768px) {
             font-size: 1.5rem;
         }
-        @media (max-width: 480px) {
-            width: 80%;
-        }
     }
 
     @media (max-width: 768px) {
         height: 50vh;
+    }
+  }
+  .carousel-control-prev,
+  .carousel-control-next {
+    width: 5%;
+    // opacity: 0;
+    transition: opacity 0.3s ease;
+    
+    &:hover {
+      opacity: 1;
+    }
+  }
+
+  .carousel-indicators {
+    z-index: 3;
+    
+    button {
+      width: 30px;
+      height: 3px;
+      background-color: white;
+      opacity: 0.5;
+      margin: 0 5px;
+      
+      &.active {
+        opacity: 1;
+      }
     }
   }
 }
