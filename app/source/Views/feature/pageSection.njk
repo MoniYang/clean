@@ -1,5 +1,5 @@
 {% from 'source/Views/components/button.njk' import button , buttonBorder %}
-{% macro pageSection( img, title,content,pic ) %}
+{% macro pageSection( img, title, pic,url ) %}
 
 <div class="page-section" style="background-image: url('{{img}}/demo/clean_{{pic}}.jpg');">
   
@@ -14,8 +14,8 @@
             <i class="bi-arrow-right"></i>
         </li>
         <li>
-            <a href="#">
-                公司介紹
+            <a href="{{url}}">
+                {{title}}
                 </a>
         </li>
     </ul>

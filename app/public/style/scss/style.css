@@ -258,6 +258,11 @@ header nav {
   color: hsla(196.25, 78.34%, 40.23%, 0.17);
   font-weight: 400;
 }
+@media (max-width: 768px) {
+  [class*=page--] .sub-title {
+    font-size: 2rem;
+  }
+}
 
 .page--about-us .list {
   display: flex;
@@ -462,6 +467,11 @@ header nav {
   left: 10px;
   z-index: -1;
 }
+@media (max-width: 768px) {
+  .text-title:after {
+    height: 10px;
+  }
+}
 
 .carousel-item {
   background-size: cover;
@@ -593,4 +603,29 @@ header nav {
 }
 .carousel .carousel-indicators button.active {
   opacity: 1;
+}
+
+.contact-info {
+  width: 100%;
+}
+.contact-info ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.contact-info li {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+.contact-info li i {
+  margin-right: 1rem;
+  color: var(--primary-color);
+  font-weight: 700;
+}
+.contact-info .sub-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--primary-color);
+  margin-bottom: 1rem;
 }/*# sourceMappingURL=style.css.map */
