@@ -1,21 +1,29 @@
 {% from 'source/Views/components/button.njk' import button , buttonBorder %}
-{% macro ServiceItem( img, title,content,pic ) %}
+{% macro ServiceItem( img, title,content,pic="pic" , index=true) %}
 
 
-  <div class="col-md-3">
-    <div class="service-item">
-      <div class="service-item__img">
-        <img src="{{img}}/demo/clean_{{pic}}.jpg" alt="">
+  <div class="col-xl-3 col-md-4">
+    <a class="service-item" href="./service_detail.html">
+      <div class="service-item__img" style="background-image: url('{{img}}/service/{{pic}}.jpeg');">
+        
       </div>
       <div class="service-item__content">
         <h2 class="text-style-title">{{title}}</h2>
         <p>{{content}}</p>
+        {% if index==true %}
            <button class="icon-btn">
               <i class="bi bi-link-45deg"></i>
             </button>
+        {% else %}
+          <button class="icon-btn">
+            <span>More</span>
+            <i class="bi bi-arrow-right"></i>
+          </button>
+        {% endif %}
       </div>
-    </div>
-
-</div>
+    </a>
+  </div>
 {% endmacro %}
+
+
 

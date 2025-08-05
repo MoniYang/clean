@@ -1,5 +1,5 @@
 {% from 'source/Views/components/button.njk' import button , buttonBorder %}
-{% macro pageSection( img, title,content,pic ) %}
+{% macro pageSection( img, title, pic,url , title2='') %}
 
 <div class="page-section" style="background-image: url('{{img}}/demo/clean_{{pic}}.jpg');">
   
@@ -14,12 +14,55 @@
             <i class="bi-arrow-right"></i>
         </li>
         <li>
-            <a href="#">
-                公司介紹
+            <a href="{{url}}">
+                {{title}}
                 </a>
         </li>
+        {% if title2 %}
+        <li>
+            <i class="bi-arrow-right"></i>
+        </li>
+        <li>
+            <a href="#">
+                {{title2}}
+                </a>
+        </li>
+        {% endif %}
     </ul>
  
 </div>
 {% endmacro %}
 
+
+{% macro path( ) %}
+
+<div class="path row">
+    <ul class="">
+        <li>
+           <a href="#">
+            <i  class="bi-arrow-left"></i>
+            </a>
+        </li>
+        {% for i in range(1,7) %}
+        {% if i == 1 %}
+        <li class="active">
+            <a href="#">
+                {{i}}
+                </a>
+        </li>
+        {% else %}
+        <li>
+            <a href="#">
+                {{i}}
+                </a>
+        </li>
+        {% endif %}
+        {% endfor %}
+        <li>
+           <a href="#">
+            <i  class="bi-arrow-right"></i>
+            </a>
+        </li>
+    </ul>
+</div>
+{% endmacro %}

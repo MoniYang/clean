@@ -1,0 +1,20 @@
+{% extends "source/Views/include/htmllayout.njk" %}
+
+{% block content %}
+    {{ pageSection(img=img,title="服務實例",url="./service.html",pic="13") }}
+
+    <div class="container page--service">
+        <div class="row">
+        {{ServiceItem(img=img,title="國立清華大學",content="磁磚檢測",pic="pic" , index=false)}}
+        {{ServiceItem(img=img,title="國立清華大學",content="磁磚檢測",pic="pic" , index=false)}}
+        {{ServiceItem(img=img,title="國立清華大學",content="磁磚檢測",pic="pic" , index=false)}}    
+        {{ServiceItem(img=img,title="國立清華大學",content="磁磚檢測",pic="pic" , index=false)}}
+        {{ServiceItem(img=img,title="國立清華大學",content="磁磚檢測",pic="pic" , index=false)}}
+        {{ServiceItem(img=img,title="國立清華大學",content="磁磚檢測",pic="pic" , index=false)}}
+        {{ServiceItem(img=img,title="國立清華大學",content="磁磚檢測",pic="pic" , index=false)}}
+        {{ServiceItem(img=img,title="國立清華大學",content="磁磚檢測",pic="pic" , index=false)}}
+          {{ path() }}
+    </div>
+
+  
+{% endblock %}
