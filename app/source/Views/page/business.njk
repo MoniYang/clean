@@ -1,0 +1,88 @@
+{% extends "source/Views/include/htmllayout.njk" %}
+
+{% block content %}
+    {{ pageSection(img=img,title="營業項目" ,url="./business.html",pic="13") }}
+
+    <div class="container page--business">
+        <div class="container">
+            <div class="flex flex-wrap">
+                 <h2 class="text-title">主要營業項目</h2>
+            </div>
+            <div class="row align-items-center justify-content-center">
+                <div class="col-lg-4 col-md-6">
+                    <div class="item" style="background-image: url('{{img}}/service/pic.jpeg');">
+                        <span class="text">磁磚檢測</span>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="item" style="background-image: url('{{img}}/business/rent.jpg');">
+                        <span class="text">洗窗機租賃</span>
+                    </div>
+                </div>
+                 <div class="col-lg-4 col-md-6">
+                    <div class="item" style="background-image: url('{{img}}/business/fix.jpg');">
+                        <span class="text">外牆磁磚檢查及修補</span>
+                    </div>
+                </div>
+                 <div class="col-lg-4 col-md-6">
+                    <div class="item" style="background-image: url('{{img}}/business/pic3.jpeg');">
+                        <span class="text">外牆防水工程</span>
+                    </div>
+                </div>
+                 <div class="col-lg-4 col-md-6">
+                    <div class="item" style="background-image: url('{{img}}/business/pic4.jpeg');">
+                        <span class="text">帷幕玻璃矽利康換新重打</span>
+                    </div>
+                </div>
+               
+            </div>
+          
+        </div>
+        <div class="container other-business">
+             <div class="flex flex-wrap">
+                <h2 class="text-title">其他營業項目</h2>
+             </div>
+             <ul class="row">
+                {% set business = [
+                    {
+                        title: '清潔工程',
+                        content: '承攬室內外清潔、交屋清潔、裝潢交屋等工程'
+                    },
+                    {
+                        title: '外牆清洗',
+                        content: '提供專業外牆清洗服務，包含洗窗機租賃、外牆磁磚脫落、細縫修補等工程 '
+                    },
+                    {
+                        title: '環境清潔維護 ',
+                        content: '提供環境定期清潔、地板石材清潔打蠟、委外清潔維護勞務等服務  '
+                    },
+                    {
+                        title: '水塔及蓄水池清洗 ',
+                        content: '承攬水塔及蓄水池清洗服務  '
+                    },
+                    {
+                        title: '病媒防治服務 ',
+                        content: '提供病媒防治相關服務 '
+                    },
+                    {
+                        title: '建築廢棄物清除  ',
+                        content: '協助處理建築廢棄物 '
+                    },
+                    {
+                        title: '一般事業廢棄物處理 ',
+                        content: '助處理一般事業廢棄物 '
+                    }
+                ] %}
+                {% for item in business %}
+                <li class="col-md-4">
+                    <span class="text">{{item.title}}</span>
+                    <p>{{item.content}}</p>
+                </li>
+                {% endfor %}
+               
+             </ul>
+        </div>
+    </div>
+
+  
+{% endblock %}
