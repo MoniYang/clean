@@ -410,9 +410,9 @@ header nav{
             position: absolute;
             background-color: hsl(54deg 82% 43% / 56%);
             height: 5px;
-            right: -10px;
+            right: -6px;
             bottom: 0;
-            left: 10px;
+            left: 6px;
             z-index: -1;
 
         }
@@ -596,7 +596,7 @@ header nav{
    
     &__img{
         width: 100%;
-        min-height: 180px;
+        min-height: 220px;
         background-size: cover;
         background-position: center;
     }
@@ -631,7 +631,43 @@ header nav{
         word-break: break-all;
     }
 }
+.btn--back{
+    transition: all 0.3s ease;
+    position: relative;
+    margin: 0 auto;
+    &:hover{
+        i{
+           right: -5px;
+           position: relative;
+        }
+    }
 
+    &:after {
+        content: '';
+        width: 0;
+        height: .375rem;
+        background: var(--highlight-color);
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        transition: all 0.3s ease;
+        transform: scaleX(0);
+    }
+    &:hover{
+        &:after {
+            content: '';
+            width: 100%;
+            // height: 2px;
+            // background: var(--highlight-color);
+            // position: absolute;
+            // bottom: 0;
+            // left: 0;
+            transition: all 0.3s ease;
+            transform: scaleX(1);
+        }
+    }
+    
+}
 .footer {
     display: flex;
     align-items: center;
